@@ -1,33 +1,48 @@
 import * as fs from "fs/promises"
 import yargs from "yargs"
 import { hideBin } from "yargs/helpers"
-import { Segment } from "./src/tokens/Segment"
-
-const valuePattern = /[A-Za-z\-]/
+import { parse } from "./src/utils/parser"
 
 const main = async (args: string[]) => {
   const argv = await yargs(hideBin(args))
     .usage("Usage: $0 [options]")
     .options({
-      f: { type: "string", alias: "file", demandOption: true, nargs: 1 }
+      n: { type: "number", alias: "number", demandOption: true, nargs: 1}
     })
     .help("h")
     .alias("h", "help")
     .epilog("Copyright 2021 @acroos")
     .argv
 
-  let formalSyntax: string
-  try {
-    const buffer = await fs.readFile(argv.f)
-    formalSyntax = buffer.toString()
-  } catch {
-    console.log(`Could not read file ${argv.f}`)
-    process.exit(1)
+  const files = await fs.readdir("css/")
+  let fileNames: string[] = []
+
+  while (fileNames.length < argv.n) {
+    let name = files[Math.floor(Math.random() * files.length)];
+    if (!fileNames.includes(name)) {
+      fileNames.push(name);
+    }
   }
 
-  const rawTokens = formalSyntax.split(/\s+/)
+  fileNames.forEach(async fileName => {
+    const name = fileName.split(".")[0]
+    const value = await generateValue(fileName)
+    console.log(`${name}: ${value}`)
+  });
+}
 
-  console.log(rawTokens)
+async function generateValue(fileName: string): Promise<(string | null)> {
+  let formalSyntax: string;
+  const path = `css/${fileName}`;
+  try {
+    const buffer = await fs.readFile(path);
+    formalSyntax = buffer.toString();
+  } catch {
+    console.log(`Could not read file ${path}`);
+    process.exit(1);
+  }
+
+  return parse(formalSyntax).value()
 }
 
 main(process.argv)
