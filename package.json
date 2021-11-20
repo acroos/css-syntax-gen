@@ -1,7 +1,7 @@
 {
-  "name": "css-syntax-parser",
+  "name": "css-syntax-gen",
   "version": "1.0.0",
-  "description": "",
+  "description": "Give a number of CSS properties and get back random values",
   "main": "index.js",
   "type": "commonjs",
   "scripts": {
