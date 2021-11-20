@@ -35,7 +35,7 @@ function parseSyntax(syntax: (String | undefined)): Token {
     } else if (isVariableUsage(word)) {
       currentGroup.addChild(new Variable(word, false))
     } else if (isOptionalVariableUsage(word)) {
-      currentGroup.addChild(new Variable(word, true))
+      currentGroup.addChild(new Variable(word.slice(0, -1), true))
     } else if (isOrKeyword(word)) {
       currentGroup.type = GroupingType.Choice
     } else if (isGroupStartBracket(word)) {
