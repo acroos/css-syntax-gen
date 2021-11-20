@@ -1,5 +1,5 @@
-import { Token } from "./Token";
-import { VariableDefinition } from "./VariableDefinition";
+import { Token } from "../Token";
+import { VariableDefinition } from "../VariableDefinition";
 
 export class TimeValue extends Token {
   value(variables: VariableDefinition[]): string | null {

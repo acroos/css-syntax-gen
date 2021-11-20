@@ -1,0 +1,3 @@
+<single-animation-iteration-count>
+where
+<single-animation-iteration-count> = infinite | <number>

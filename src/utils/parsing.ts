@@ -13,7 +13,7 @@ export function parse(syntax: String): Program {
 
   program.syntaxRoot = parseSyntax(rootSyntax)
   if (syntaxParts.length > 0) {
-    program.variables = parseVariables(syntaxParts.join("\n"))
+    program.variables.push(...parseVariables(syntaxParts.join("\n")))
   }
 
   return program

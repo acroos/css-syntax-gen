@@ -1,0 +1,3 @@
+none | <keyframes-name>
+where
+<keyframes-name> = <custom-ident> | <string>
