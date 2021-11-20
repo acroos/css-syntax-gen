@@ -21,7 +21,5 @@ describe("parser", () => {
       "/Users/austinroos/src/not-work/css-syntax-parser/css/align-content.syntax"
     );
     const formalSyntax = buffer.toString()
-    const program = parse(formalSyntax)
-    console.log(program)
   })
 })

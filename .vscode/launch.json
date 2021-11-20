@@ -15,6 +15,24 @@
       ],
       "console": "integratedTerminal",
       "internalConsoleOptions": "neverOpen"
+    },
+    {
+      "name": "Launch Program",
+      "program": "${workspaceFolder}/index.ts",
+      "request": "launch",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "runtimeArgs": [
+        "-n 6"
+      ],
+      "type": "node"
+    },
+    {
+      "command": "npm start -- -n 5",
+      "name": "Run npm start",
+      "request": "launch",
+      "type": "node-terminal"
     }
   ]
 }

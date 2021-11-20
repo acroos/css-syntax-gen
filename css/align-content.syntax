@@ -1,4 +1,4 @@
-normal | <baseline-position> | <content-distribution> | <overflow-position>? <content-position>
+normal | <baseline-position> | <content-distribution> | [ <overflow-position>? <content-position> ]
 where
 <baseline-position> = [ first | last ]? baseline
 <content-distribution> = space-between | space-around | space-evenly | stretch

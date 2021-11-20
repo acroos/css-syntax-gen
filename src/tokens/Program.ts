@@ -1,16 +1,18 @@
-import { Segment } from "./Segment";
+import { TimeValue } from "./TimeValue";
+import { Token } from "./Token";
 import { VariableDefinition } from "./VariableDefinition";
 
 export class Program {
-  public segment: Segment
+  public syntaxRoot!: Token
   public variables: VariableDefinition[]
 
   constructor() {
-    this.segment = new Segment()
-    this.variables = []
+    this.variables = [
+      new VariableDefinition("<time>", new TimeValue())
+    ]
   }
 
   value(): (string | null) {
-    return this.segment.value(this.variables)
+    return this.syntaxRoot.value(this.variables)
   }
 }

@@ -1,0 +1,3 @@
+<single-animation-fill-mode>
+where
+<single-animation-fill-mode> = none | forwards | backwards | both

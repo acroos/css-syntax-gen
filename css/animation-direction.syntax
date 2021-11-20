@@ -1,0 +1,3 @@
+<single-animation-direction>
+where
+<single-animation-direction> = normal | reverse | alternate | alternate-reverse

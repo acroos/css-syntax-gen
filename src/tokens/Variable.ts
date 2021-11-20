@@ -21,6 +21,6 @@ export class Variable extends Token {
       throw new Error(`Unknown variable '${this.name}' used`)
     }
 
-    return definition.segment.value(variables)
+    return definition.token.value(variables)
   }
 }

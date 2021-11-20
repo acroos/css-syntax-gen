@@ -1,7 +1,7 @@
 import * as fs from "fs/promises"
 import yargs from "yargs"
 import { hideBin } from "yargs/helpers"
-import { parse } from "./src/utils/parser"
+import { parse } from "./src/utils/parsing"
 
 const main = async (args: string[]) => {
   const argv = await yargs(hideBin(args))
@@ -38,7 +38,7 @@ async function generateValue(fileName: string): Promise<(string | null)> {
     const buffer = await fs.readFile(path);
     formalSyntax = buffer.toString();
   } catch {
-    console.log(`Could not read file ${path}`);
+    console.error(`Could not read file ${path}`);
     process.exit(1);
   }
 

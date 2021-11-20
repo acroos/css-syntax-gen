@@ -1,4 +1,4 @@
-auto | normal | stretch | <baseline-position> | <overflow-position>? <self-position>
+auto | normal | stretch | <baseline-position> | [ <overflow-position>? <self-position> ]
 where
 <baseline-position> = [ first | last ]? baseline
 <overflow-position> = unsafe | safe

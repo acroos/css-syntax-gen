@@ -1,11 +1,11 @@
-import { Segment } from "./Segment"
+import { Token } from "./Token";
 
 export class VariableDefinition {
   public name: string;
-  public segment: Segment;
+  public token: Token;
 
-  constructor(name: string, segment: Segment) {
+  constructor(name: string, token: Token) {
     this.name = name;
-    this.segment = segment;
+    this.token = token;
   }
 }
